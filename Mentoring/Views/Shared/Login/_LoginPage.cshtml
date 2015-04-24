@@ -1,0 +1,32 @@
+﻿<div class="col-md-6 col-md-offset-3" ng-controller="AuthController">
+    <form ng-submit="logIn(userName, pass)" class="form-horizontal" role="form" name="authForm" novalidate>
+		<p class="error-text" ng-if="error">Wrong credentials!</p>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="login">Login</label>
+            <div class="col-md-6">
+                <input ng-model="userName" name="login" id="login" class="form-control" 
+					ng-class="{'error-input': authForm.login.$touched && authForm.login.$invalid || authForm.login.$touched && authForm.login.$error.pattern}" 
+					type="text" placeholder="Login..." ng-pattern="loginPattern" required />
+                
+            </div>
+            <div class="col-md-4">
+                <span class="error-label" ng-if="authForm.login.$touched && authForm.login.$error.required">* required</span>
+                <span class="error-label" ng-if="authForm.login.$touched && authForm.login.$error.pattern">* only latin letters</span>
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="login">Password</label>
+            <div class="col-md-6">
+                <input ng-model="pass" name="password" id="password" class="form-control" ng-class="{'error-input': authForm.password.$touched && authForm.password.$error.required}" 
+					type="password" placeholder="Password..." required />
+            </div>
+            <div class="col-md-4">
+                <span class="error-label" ng-if="authForm.password.$touched && authForm.password.$error.required">* required</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary col-md-6 col-md-offset-2" ng-disabled="authForm.$invalid">Sign in</button>
+    </form>
+</div>
+
+

@@ -1,0 +1,41 @@
+﻿<div class="col-md-2">
+    <div statuses></div>
+</div>
+<div class="col-md-10">
+    <h1>Task List</h1>
+	<table class="table table-striped table-hover">
+		<tr>
+			<th>Task name</th>
+			<th>Creation date</th>
+			<th>Completion date</th>
+			<th>Remaining time</th>
+			<th>Status</th>
+			<th>Action</th>
+		</tr>
+		<tr ng-repeat="task in todoList">
+			<td>#{{task.id}} - {{task.name}}</td>
+			<td>{{task.creationDate | date: 'MM/dd/yyyy' }}</td>
+			<td>{{task.completionDate}}</td>
+			<td>{{task.remainingTime | remainingTimeFilter }}</td>
+			<td>
+				<select class="form-controll" ng-model="task.status" ng-change="changeStatus(task)">
+                    <option ng-repeat="status in statuses" ng-selected="task.status === status.value" value="{{status.value}}">{{status.name}}</option>
+                </select>
+			</td>
+			<td>
+				<a class="btn glyphicon glyphicon-pencil btn-edit" ng-click="edit(task)" ng-disabled="ROLE === 'user'"></a>
+                <a class="btn glyphicon glyphicon-remove btn-remove" ng-click="delete(task)" ng-disabled="ROLE === 'user'"></a>
+			</td>
+		</tr>
+			
+	</table>
+	<p>
+		<button type="button" class="btn btn-primary btn-lg" ng-click="create()" ng-disabled="ROLE === 'user'">
+			Add new task +
+		</button>
+	</p>
+        
+</div>
+
+
+

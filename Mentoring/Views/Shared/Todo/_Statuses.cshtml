@@ -1,0 +1,16 @@
+﻿<h3>Show only</h3>
+<form name="filterForm" ng-submit="setFilters(filters)">
+	<div ng-repeat="status in statuses">
+		<input ng-model="status.isChecked" id="{{status.value}}" type="checkbox" name="{{status.value}}" />
+		<label for="{{status.value}}">{{status.name}}</label>
+	</div>
+	<div>
+		<p>
+			Remaining time:
+		</p>
+		<input range-dir id="dir" ng-model="filters.range" type="text" name="range" class="span2" />		
+	</div>
+	<br />
+	<button type="submit" class="btn btn-primary">Filter</button>
+</form>
+

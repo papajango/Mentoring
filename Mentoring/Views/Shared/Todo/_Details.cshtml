@@ -1,0 +1,41 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+    <h3>Fill all inputs</h3>
+    <hr />
+	<form role="form" name="createForm" novalidate ng-submit="apply()">
+		<div>
+			<label for="task-title">Title</label>
+			<input ng-model="item.name" class="form-control" id="task-title" type="text" value=""
+				   name="taskTitle" ng-class="{'error-input': createForm.taskTitle.$touched && createForm.taskTitle.$invalid}"
+				   type="text" placeholder="Title" required />
+		</div>
+		<div>
+			<span class="error-label" ng-show="createForm.taskTitle.$touched && createForm.taskTitle.$error.required">* required</span>
+		</div>
+		<div>
+			<label for="task-description">Description</label>
+			<textarea ng-model="item.description" class="form-control" id="task-description" name="taskDescription"
+					  ng-class="{'error-input': createForm.taskDescription.$touched && createForm.taskDescription.$invalid}"
+					  placeholder="Description" required></textarea>
+		</div>
+		<div>
+			<span class="error-label" ng-show="createForm.taskDescription.$touched && createForm.taskDescription.$error.required">* required</span>
+		</div>
+		<div>
+			<label for="completion-date">Completion date</label>
+			<input ng-model="item.completionDate" class="form-control" id="completion-date" type="text" name="completionDate"
+				   placeholder="mm/dd/yyyy" ng-class="{'error-input': createForm.completionDate.$touched && createForm.completionDate.$invalid}" ng-pattern="datePattern" required />
+		</div>
+		<div>
+			<span class="error-label" ng-if="createForm.completionDate.$touched && createForm.completionDate.$error.required">* required</span>
+			<span class="error-label" ng-if="(createForm.completionDate.$touched && createForm.completionDate.$error.pattern) || completionError">* wrong completion date</span>
+		</div>
+
+	</form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="apply()" ng-disabled="createForm.$invalid">Apply</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

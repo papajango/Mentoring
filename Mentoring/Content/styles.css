@@ -1,0 +1,58 @@
+﻿/* site styles*/
+/*grids*/
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+#main {
+	padding-bottom: 60px;
+}
+.footer {
+	margin: -60px 0 0 0;
+	height: 60px;
+}
+.f-right {
+	float: right;
+}
+/*grids end*/
+.a-center {
+	text-align: center;
+}
+.search-form,
+.user {
+    margin: 20px 0px 0px 0px;
+}
+.error-input {
+	border-color: #f00;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+/*todo*/
+.slider.slider-horizontal {
+	width: 100%;
+}
+.btn-remove {
+    color: #f00;
+}
+.btn-edit {
+    color: #5fa052;
+}
+/*todo end*/
+/*login*/
+.login-container {
+    width: 500px;
+}
+.error-label {
+    display: block;
+    color: #f00;
+}
+.error-text {
+	color: #f00;
+}
+/*login end*/
